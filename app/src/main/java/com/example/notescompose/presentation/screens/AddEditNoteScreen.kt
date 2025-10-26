@@ -47,7 +47,7 @@ import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
-import com.example.notescompose.dataClass.AddNote
+import com.example.notescompose.app.navigation.Routes
 import com.example.notescompose.domain.model.Note
 import com.example.notescompose.presentation.add_edit_note.AddEditNoteEvent
 import com.example.notescompose.presentation.add_edit_note.AddEditNoteViewModel
@@ -59,7 +59,7 @@ import kotlinx.coroutines.launch
 
 @Composable
 fun AddEditNoteScreen (
-    addNote: AddNote,
+    addNote: Routes.AddNote,
     navController: NavController,
     noteColor: Int,
     viewModel: AddEditNoteViewModel = hiltViewModel(),

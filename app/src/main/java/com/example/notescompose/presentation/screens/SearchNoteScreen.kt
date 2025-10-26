@@ -29,7 +29,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
-import com.example.notescompose.dataClass.Search
+import com.example.notescompose.app.navigation.Routes
+
 import com.example.notescompose.presentation.notes.NotesEvent
 import com.example.notescompose.presentation.notes.components.NotesItem
 import com.example.notescompose.presentation.notes.components.NotesViewModel
@@ -43,7 +44,7 @@ import kotlinx.coroutines.launch
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun SearchNoteScreen(
-    search: Search,
+    search: Routes.Search,
     viewModel: NotesViewModel = hiltViewModel(),
     navController: NavController,
 ) {
