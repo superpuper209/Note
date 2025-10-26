@@ -46,6 +46,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavController
 import com.example.notescompose.app.navigation.Routes
 import com.example.notescompose.domain.model.Note
@@ -58,24 +59,25 @@ import kotlinx.coroutines.launch
 
 
 @Composable
-fun AddEditNoteScreen (
+fun AddEditNoteScreen(
     addNote: Routes.AddNote,
     navController: NavController,
     noteColor: Int,
     viewModel: AddEditNoteViewModel = hiltViewModel(),
     context: Context,
-    onDialogBack:  () -> Unit,
-    onBackAddNote:  () -> Unit,
+    onDialogBack: () -> Unit,
+    onBackAddNote: () -> Unit,
 ) {
+    val state = viewModel.state.collectAsStateWithLifecycle()
 
     val snackbarHostState = remember { SnackbarHostState() }
 
-    val titleState = viewModel.noteTitle.value
-    val contentState = viewModel.noteContent.value
+//    val titleState = viewModel.noteTitle.value
+//    val contentState = viewModel.noteContent.value
 
-    val noteBackgroundAnimatable = remember{
-        Animatable (
-            Color(if(noteColor != -1) noteColor else viewModel.noteColor.value)
+    val noteBackgroundAnimatable = remember {
+        Animatable(
+            Color(if (noteColor != -1) noteColor else viewModel.noteColor.value)
         )
     }
 
@@ -83,8 +85,8 @@ fun AddEditNoteScreen (
 
     BackHandler(enabled = true) {
 
-        val hasContent = contentState.text.isNotBlank()
-        val hasTitle = titleState.text.isNotBlank()
+        val hasContent = state.value.noteContext.isNotBlank()
+        val hasTitle = state.value.noteTitle.isNotBlank()
 
         if (hasContent || hasTitle) {
             onDialogBack()
@@ -99,9 +101,10 @@ fun AddEditNoteScreen (
             when (event) {
                 is AddEditNoteViewModel.UiEvent.ShowSnackbar -> {
 
-                  Toast.makeText(context, event.message, Toast.LENGTH_SHORT).show()
+                    Toast.makeText(context, event.message, Toast.LENGTH_SHORT).show()
 
                 }
+
                 is AddEditNoteViewModel.UiEvent.SaveNote -> {
                     navController.navigateUp()
                 }
@@ -111,10 +114,10 @@ fun AddEditNoteScreen (
 
     Scaffold(
         snackbarHost = {
-        SnackbarHost(hostState = snackbarHostState)
-    },
-        ) { paddingValues ->
-        Column (
+            SnackbarHost(hostState = snackbarHostState)
+        },
+    ) { paddingValues ->
+        Column(
             modifier = Modifier
                 .fillMaxSize()
                 .background(noteBackgroundAnimatable.value)
@@ -122,7 +125,7 @@ fun AddEditNoteScreen (
             verticalArrangement = Arrangement.SpaceBetween,
 
             ) {
-            Row (
+            Row(
                 modifier = Modifier
                     .fillMaxWidth()
                     .height(80.dp)
@@ -131,7 +134,7 @@ fun AddEditNoteScreen (
                 verticalAlignment = Alignment.CenterVertically
             ) {
 
-                Card (
+                Card(
                     modifier = Modifier
                         .height(43.dp)
                         .width(43.dp),
@@ -141,10 +144,10 @@ fun AddEditNoteScreen (
                         contentColor = Color.White
                     )
                 ) {
-                    IconButton (onClick = {
+                    IconButton(onClick = {
                         onDialogBack()
                     }) {
-                        Icon (
+                        Icon(
                             imageVector = Icons.Filled.ArrowBackIosNew,
                             contentDescription = "back",
                         )
@@ -168,26 +171,27 @@ fun AddEditNoteScreen (
                     ) {
                         IconButton(onClick = {
 
-                        val hasContent = contentState.text.isNotBlank()
-                        val hasTitle = titleState.text.isNotBlank()
+                            val hasContent = contentState.text.isNotBlank()
+                            val hasTitle = titleState.text.isNotBlank()
 
-                        if (hasContent && hasTitle) {
-                            viewModel.onEvent(AddEditNoteEvent.SaveNote)
-                            onBackAddNote()
-                        } else {
-                            var messageContent = ""
+                            if (hasContent && hasTitle) {
+                                viewModel.onEvent(AddEditNoteEvent.SaveNote)
+                                onBackAddNote()
+                            } else {
+                                var messageContent = ""
 
-                            if (!hasContent) messageContent = "Заметка не может быть пустой"
-                            else if(!hasTitle) messageContent = "Заметка не может быть без названия"
+                                if (!hasContent) messageContent = "Заметка не может быть пустой"
+                                else if (!hasTitle) messageContent =
+                                    "Заметка не может быть без названия"
 
-                            scope.launch {
-                                snackbarHostState.showSnackbar (
-                                    message = messageContent,
-                                    actionLabel = "Ок",
-                                    duration = SnackbarDuration.Short
-                                )
+                                scope.launch {
+                                    snackbarHostState.showSnackbar(
+                                        message = messageContent,
+                                        actionLabel = "Ок",
+                                        duration = SnackbarDuration.Short
+                                    )
+                                }
                             }
-                        }
 
                         }) {
                             Icon(
@@ -200,12 +204,12 @@ fun AddEditNoteScreen (
             }
 
             Row(
-               modifier = Modifier
-                   .fillMaxWidth()
-                   .padding(8.dp),
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(8.dp),
                 horizontalArrangement = Arrangement.SpaceBetween
             ) {
-                Note.noteColors.forEach{ color ->
+                Note.noteColors.forEach { color ->
                     val colorInt = color.toArgb()
 
                     Box(
@@ -223,12 +227,12 @@ fun AddEditNoteScreen (
                             )
                             .clickable {
                                 scope.launch {
-                                   noteBackgroundAnimatable.animateTo(
-                                       targetValue = Color(colorInt),
-                                       animationSpec = tween(
-                                           durationMillis = 500
-                                       )
-                                   )
+                                    noteBackgroundAnimatable.animateTo(
+                                        targetValue = Color(colorInt),
+                                        animationSpec = tween(
+                                            durationMillis = 500
+                                        )
+                                    )
                                 }
                                 viewModel.onEvent(AddEditNoteEvent.ChangeColor(colorInt))
                             }
