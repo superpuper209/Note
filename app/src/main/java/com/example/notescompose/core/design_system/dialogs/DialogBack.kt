@@ -1,6 +1,5 @@
-package com.example.notescompose.dialog
+package com.example.notescompose.core.design_system.dialogs
 
-import android.text.SpanWatcher
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -29,13 +28,10 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.hilt.navigation.compose.hiltViewModel
-import com.example.notescompose.presentation.add_edit_note.AddEditNoteViewModel
-import com.example.notescompose.ui.theme.Black2
-import com.example.notescompose.ui.theme.BlackBg
-import com.example.notescompose.ui.theme.GreenNotes
-import com.example.notescompose.ui.theme.RedNotes
-import com.example.notescompose.ui.theme.TextColorGray
+import com.example.notescompose.core.design_system.theme.BlackBg
+import com.example.notescompose.core.design_system.theme.GreenNotes
+import com.example.notescompose.core.design_system.theme.RedNotes
+import com.example.notescompose.core.design_system.theme.TextColorGray
 
 @Composable
 fun DialogBack(

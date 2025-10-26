@@ -1,6 +1,5 @@
 package com.example.notescompose.presentation.screens
 
-import android.graphics.Paint
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -14,9 +13,6 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBackIosNew
-import androidx.compose.material.icons.filled.Menu
-import androidx.compose.material.icons.filled.Settings
-import androidx.compose.material.icons.filled.Sort
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
@@ -26,7 +22,6 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
-import androidx.compose.material3.SnackbarHost
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
@@ -34,20 +29,19 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
-import com.example.notescompose.dataClass.Setting
-import com.example.notescompose.presentation.notes.NotesEvent
-import com.example.notescompose.ui.theme.Black2
-import com.example.notescompose.ui.theme.BlackBg
-import com.example.notescompose.ui.theme.GrayTopAppBar
+import com.example.notescompose.app.navigation.Routes
+
+import com.example.notescompose.core.design_system.theme.Black2
+import com.example.notescompose.core.design_system.theme.BlackBg
+import com.example.notescompose.core.design_system.theme.GrayTopAppBar
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun SettingScreen(
-    setting: Setting,
+    setting: Routes.Setting,
     navController: NavController,
     onBackSetting:  () -> Unit,
     onDialogPassword:  () -> Unit,

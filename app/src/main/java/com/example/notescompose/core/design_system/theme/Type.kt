@@ -1,4 +1,4 @@
-package com.example.notescompose.ui.theme
+package com.example.notescompose.core.design_system.theme
 
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle

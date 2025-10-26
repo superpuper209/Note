@@ -1,16 +1,13 @@
-package com.example.notescompose.dialog
+package com.example.notescompose.core.design_system.dialogs
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Card
-import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
@@ -22,10 +19,9 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.notescompose.ui.theme.Black2
-import com.example.notescompose.ui.theme.BlackBg
-import com.example.notescompose.ui.theme.GreenNotes
-import com.example.notescompose.ui.theme.TextColorGray
+import com.example.notescompose.core.design_system.theme.BlackBg
+import com.example.notescompose.core.design_system.theme.GreenNotes
+import com.example.notescompose.core.design_system.theme.TextColorGray
 
 @Composable
 fun DialogInfo(dialogStateBack: MutableState<Boolean>, onSubmit: (String) -> Unit) {

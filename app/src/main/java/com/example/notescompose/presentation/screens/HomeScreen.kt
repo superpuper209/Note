@@ -1,6 +1,5 @@
 package com.example.notescompose.presentation.screens
 
-import android.util.Log
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
@@ -23,7 +22,6 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
-import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Info
 import androidx.compose.material.icons.filled.Menu
 import androidx.compose.material.icons.filled.Search
@@ -64,13 +62,10 @@ import com.example.notescompose.presentation.notes.components.NotesItem
 import com.example.notescompose.presentation.notes.components.NotesViewModel
 import com.example.notescompose.presentation.notes.components.OrderSection
 import com.example.notescompose.presentation.util.Screen
-import com.example.notescompose.ui.theme.Black2
-import com.example.notescompose.ui.theme.Black3
-import com.example.notescompose.ui.theme.BlackBg
-import com.example.notescompose.ui.theme.GrayBgAddNotes
-import com.example.notescompose.ui.theme.GrayTopAppBar
-import com.example.notescompose.ui.theme.GreenNotes
-import com.example.notescompose.ui.theme.RedNotes
+import com.example.notescompose.core.design_system.theme.Black2
+import com.example.notescompose.core.design_system.theme.BlackBg
+import com.example.notescompose.core.design_system.theme.GrayBgAddNotes
+import com.example.notescompose.core.design_system.theme.GrayTopAppBar
 import kotlinx.coroutines.launch
 
 

@@ -1,7 +1,6 @@
-package com.example.notescompose.System
+package com.example.notescompose.core.design_system.system_bar
 
 import android.app.Activity
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
 import androidx.compose.ui.graphics.Color
@@ -9,8 +8,8 @@ import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalView
 import androidx.core.view.WindowCompat
-import com.example.notescompose.ui.theme.BlackBg
-import com.example.notescompose.ui.theme.GrayTopAppBar
+import com.example.notescompose.core.design_system.theme.BlackBg
+import com.example.notescompose.core.design_system.theme.GrayTopAppBar
 
 @Composable
 fun SystemBarsColor(

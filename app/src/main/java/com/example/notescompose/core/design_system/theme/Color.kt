@@ -1,4 +1,4 @@
-package com.example.notescompose.ui.theme
+package com.example.notescompose.core.design_system.theme
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth

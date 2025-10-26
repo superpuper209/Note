@@ -1,15 +1,13 @@
 package com.example.notescompose.domain.model
 
-import androidx.compose.ui.graphics.Color
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import com.example.notescompose.ui.theme.AquaNotes
-import com.example.notescompose.ui.theme.GrayNotes
-import com.example.notescompose.ui.theme.GreenNotes
-import com.example.notescompose.ui.theme.PinkNotes
-import com.example.notescompose.ui.theme.PurpleNotes
-import com.example.notescompose.ui.theme.RedNotes
-import com.example.notescompose.ui.theme.YellowNotes
+import com.example.notescompose.core.design_system.theme.AquaNotes
+import com.example.notescompose.core.design_system.theme.GrayNotes
+import com.example.notescompose.core.design_system.theme.GreenNotes
+import com.example.notescompose.core.design_system.theme.PinkNotes
+import com.example.notescompose.core.design_system.theme.PurpleNotes
+import com.example.notescompose.core.design_system.theme.YellowNotes
 
 @Entity
 data class Note(

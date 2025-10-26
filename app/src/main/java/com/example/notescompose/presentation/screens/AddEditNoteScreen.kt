@@ -1,7 +1,6 @@
 package com.example.notescompose.presentation.screens
 
 import android.content.Context
-import android.util.Log
 import android.widget.Toast
 import androidx.activity.compose.BackHandler
 import androidx.compose.animation.Animatable
@@ -35,7 +34,6 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.SnackbarDuration
 import androidx.compose.material3.SnackbarHost
 import androidx.compose.material3.SnackbarHostState
-import androidx.compose.material3.SnackbarResult
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.remember
@@ -50,17 +48,13 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.example.notescompose.dataClass.AddNote
-import com.example.notescompose.dialog.DialogBack
 import com.example.notescompose.domain.model.Note
 import com.example.notescompose.presentation.add_edit_note.AddEditNoteEvent
 import com.example.notescompose.presentation.add_edit_note.AddEditNoteViewModel
 import com.example.notescompose.presentation.add_edit_note.TransparentHintTextField
-import com.example.notescompose.presentation.notes.NotesEvent
-import com.example.notescompose.presentation.notes.components.NotesViewModel
-import com.example.notescompose.ui.theme.Black2
-import com.example.notescompose.ui.theme.TextColorGray
+import com.example.notescompose.core.design_system.theme.Black2
+import com.example.notescompose.core.design_system.theme.TextColorGray
 import kotlinx.coroutines.launch
-import kotlin.system.exitProcess
 
 
 @Composable

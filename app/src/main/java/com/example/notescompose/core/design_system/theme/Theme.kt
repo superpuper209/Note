@@ -1,6 +1,5 @@
-package com.example.notescompose.ui.theme
+package com.example.notescompose.core.design_system.theme
 
-import android.app.Activity
 import android.os.Build
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.MaterialTheme

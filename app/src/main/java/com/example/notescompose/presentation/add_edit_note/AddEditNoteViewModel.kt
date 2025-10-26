@@ -9,8 +9,6 @@ import androidx.lifecycle.viewModelScope
 import com.example.notescompose.domain.model.InvalidNoteException
 import com.example.notescompose.domain.model.Note
 import com.example.notescompose.domain.use_case.NoteUseCases
-import com.example.notescompose.presentation.notes.NotesEvent
-import com.example.notescompose.ui.theme.TextColorGray
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.asSharedFlow
